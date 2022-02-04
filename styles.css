@@ -22,13 +22,14 @@ body {
     margin     : 0;
     padding    : 0.1em;
     box-sizing : border-box;
-    font-family: 'TelefonicaWeb-Regular', sans-serif;
+    font-family: "TelefonicaWeb-Light", sans-serif;
     cursor     : default;
+    overflow-x: hidden;
 }
 
 nav {
-    display        : flex;
-    justify-content: space-around;
+    display           : flex;
+    justify-content   : space-around;
     /* padding-bottom : 1em; */
 }
 
@@ -70,6 +71,10 @@ nav img:nth-child(2) {
     margin-top     : .5em;
 }
 
+.icon-submenu i {
+    font-size: 20px
+}
+
 .btn-menu {
     margin-top: .5em;
     font-size : 1.5em;
@@ -87,40 +92,42 @@ nav img:nth-child(2) {
 }
 
 .btn-Movistar {
-    width        : 10em;
-    height       : 2em;
+    width        : 7em;
+    height       : 2.5em;
     border       : none;
     background   : #00A9E0;
-    border-radius: 2px;
+    border-radius: 3.5px;
     color        : #fff;
 }
 
 /* Section Banner */
 
-.banner{
-    background: #1daadf;
-    background-image: url("./assets/Diseño.png");
-    background-repeat: no-repeat;
-    background-size: 80vh;
-    height:34vh;
-    border-bottom-left-radius: 350px 100px;
+.banner {
+    background                : #1daadf;
+    background-image          : url("./assets/Diseño.png");
+    background-repeat         : no-repeat;
+    background-size           : 80vh;
+    height                    : 34vh;
+    border-bottom-left-radius : 350px 100px;
     border-bottom-right-radius: 350px 100px;
 }
 
-.banner .banner-title{
-    font-family: "TelefonicaWeb-ExtraLight";
-    color: #fff;
-    font-size: 30px;
+.banner .banner-title {
+    font-family    : "TelefonicaWeb-ExtraLight";
+    color          : #fff;
+    font-size      : 30px;
     display        : flex;
     justify-content: center;
     margin         : 1em auto;
+    text-align: center;
 
 }
-.promo-plan{
-    width :6em;
-    position : absolute;
-    right : 2.2em;
-    top : 18em;
+
+.promo-plan {
+    width   : 6em;
+    position: absolute;
+    right   : 2.2em;
+    top     : 17.2em;
 }
 
 .privacy-pol .privacy-up,
@@ -128,9 +135,19 @@ nav img:nth-child(2) {
     color: #fff;
 }
 
-.container-change-privacy{
+.container-change-privacy {
     margin-top: .5em;
 }
+
+.principal-text {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    font-family   : "TelefonicaWeb-Light";
+    color         : #5d5e5f;
+    text-align: center;
+}
+
 
 /* Section Plans */
 
@@ -140,13 +157,14 @@ nav img:nth-child(2) {
     padding       : 2em;
     align-items   : center;
     gap           : 1em;
+    text-align: center;
 }
 
 .current-plan {
     font-family     : "TelefonicaWeb-Light";
-    width           : 50%;
+    width           : 35vh;
     height          : 50%;
-    background-color: gray;
+    background-color: #86888C;
     padding         : 1em;
     display         : flex;
     flex-direction  : column;
@@ -172,7 +190,6 @@ nav img:nth-child(2) {
     border-radius : 3px;
     padding       : 1em;
     color         : #fff;
-    align-items   : center;
     gap           : 1em;
 }
 
@@ -272,6 +289,9 @@ nav img:nth-child(2) {
     margin         : 0 auto;
 }
 
+/* Media Query */
+
+
 /* Small (sm) */
 @media (min-width: 700px) {
     nav img:nth-child(3) {
@@ -282,10 +302,6 @@ nav img:nth-child(2) {
         display: block;
     }
 
-    .btn-menu {
-        display: none;
-    }
-
     .plans {
         flex-direction: row;
     }
@@ -294,15 +310,130 @@ nav img:nth-child(2) {
     .change .btn-change {
         font-size: 18px;
     }
+
+    .container-change-privacy {
+        margin-top: 2em;
+    }
+
+    .banner .banner-title {
+        padding-top: .2em;
+        font-size  : 35px;
+    }
+
+
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) {
+
+    .banner {
+        background-size           : 100vh;
+        height                    : 40vh;
+        border-bottom-left-radius : 350px 160px;
+        border-bottom-right-radius: 350px 160px;
+    }
+    .btn-menu {
+        display: none;
+    }
+
+    nav img:nth-child(2) {
+        position: absolute;
+        left    : 1em;
+        top     : .5em;
+    }
+
+    .nav-menu {
+        display       : flex;
+        flex-direction: row;
+        position      : absolute;
+        top           : 0;
+        left          : 12em;
+        height        : 13vh;
+        width         : 100%;
+        transform     : translateX(0%);
+        transition    : transform 0.3s ease-in-out;
+        background    : transparent;
+        color         : black;
+    }
+
+    .btn-menu-close{
+        display: none;
+    }
+
+    .nav-menu li {
+        width: 12em;
+        text-align: center;
+    }
+
+    .sub-menu {
+        position: relative;
+        left    : 24.5em;
+        flex-direction: row-reverse;
+        gap: 2em;
+        top: 1em;
+    }
+    .icon-submenu{
+        gap: 2em;
+    }
+    .promo-plan {
+        width   : 10em;
+        position: absolute;
+        right   : 2.2em;
+        top     : 15em;
+    }
+    .banner .banner-title {
+        font-size      : 40px;
+        margin         : 1em auto;
+    
+    }
+
+    .principal-text {
+        font-size : 30px; 
+        
+    }
+
+    .current-plan{
+        width           : 16em;
+        height          : 14em;
+    }
+
+    .you-new-plan{
+        width: 100%;
+    }
+    .text-new-plan{ 
+        font-size : 22px;
+        text-align: left;
+    }
+    
+    .container-plan {
+        height:9.3em;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 2em;
+    }
+
+    .benefits{
+        width: 50%;
+        flex-direction: row;
+    }
+    .box{
+        width: 9em;
+        height:3.2em;
+    }
+    .new-plan p{
+        font-size :14px;
+    }
+    .number-new {
+        font-size: 60px;
+    }
+    
 }
 
 
 
-
-
-
-
-/* * {
+/* 
+* {
     color: #1daadf;
     color: #61c00c;
     color: #ee9f06;
@@ -327,10 +458,6 @@ nav img:nth-child(2) {
     /* ... */
 }
 
-/* Large (lg) */
-@media (min-width: 1024px) {
-    /* ... */
-}
 
 /* Extra Large (xl) */
 @media (min-width: 1280px) {
